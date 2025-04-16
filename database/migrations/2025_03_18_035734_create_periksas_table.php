@@ -13,11 +13,11 @@ return new class extends Migration
     {
         Schema::create('periksas', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('id_pasien')->constrained()->onDelete('cascade');
-            $table->unsignedBigInteger('id_dokter')->constrained()->onDelete('cascade');
-            $table->dateTime('tgl_periksa');
-            $table->longText('catatan');
-            $table->bigInteger('biaya_periksa');
+            $table->foreignId('id_pasien')->constrained('users')->onDelete('cascade');
+            $table->foreignId('id_dokter')->constrained('users')->onDelete('cascade');
+            $table->dateTime('tgl_periksa')->nullable();
+            $table->text('catatan')->nullable();
+            $table->integer('biaya_periksa')->nullable();
             $table->timestamps();
         });
     }

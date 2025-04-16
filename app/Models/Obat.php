@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-
 use Illuminate\Database\Eloquent\Model;
 
 class Obat extends Model
@@ -12,10 +11,7 @@ class Obat extends Model
         'kemasan',
         'harga',
     ];
-
-
     public function detail_obat(){
-        return $this->hasMany(DetailPeriksa::class, 'id_obat', 'id');
+        return $this->hasMany(DetailPeriksa::class, 'id_obat');
     }
 }
-

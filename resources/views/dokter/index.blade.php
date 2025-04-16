@@ -4,13 +4,13 @@
 
 @section('nav-item')
 <li class="nav-item">
-                <a href="./index.html" class="nav-link">
+                <a href="/dokter/memeriksa" class="nav-link">
                   <i class="nav-icon fas fa-solid fa-stethoscope"></i>
                   <p>Memeriksa</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="./index.html" class="nav-link">
+                <a href="/dokter/obat" class="nav-link">
                   <i class="nav-icon fas fa-solid fa-capsules"></i>
                   <p>Obat</p>
                 </a>
@@ -27,7 +27,7 @@
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item"><a href="/dokter/dashboard">Home</a></li>
               <li class="breadcrumb-item active">Dashboard Dokter</li>
             </ol>
           </div><!-- /.col -->

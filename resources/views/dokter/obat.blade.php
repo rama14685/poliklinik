@@ -1,24 +1,27 @@
 @extends('layout.app')
 
-@section('title','Obat')
+@section('title', 'Obat')
+
+@section('title', 'Dashboard Dokter')
 
 @section('nav-item')
+
 <li class="nav-item">
-                <a href="./index.html" class="nav-link">
-                  <i class="nav-icon fas fa-solid fa-stethoscope"></i>
-                  <p>Memeriksa</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="./index.html" class="nav-link">
-                  <i class="nav-icon fas fa-solid fa-capsules"></i>
-                  <p>Obat</p>
-                </a>
-              </li>
+  <a href="./index.html" class="nav-link">
+    <i class="nav-icon fas fa-solid fa-stethoscope"></i>
+    <p>Memeriksa</p>
+  </a>
+</li><li class="nav-item">
+  <a href="./index.html" class="nav-link">
+    <i class="nav-icon fas fa-solid fa-capsules"></i>
+    <p>Obat</p>
+  </a>
+</li>
+
 @endsection
 
 @section('content')
-    <!-- Content Header (Page header) -->
+<!-- Content Header (Page header) -->
     <div class="content-header">
       <div class="container-fluid">
         <div class="row mb-2">
@@ -40,41 +43,41 @@
     <section class="content">
       <div class="container-fluid">
         <div class="row">
-        <div class="col-md-12">
-            <!-- general form elements -->
-            <div class="card card-primary">
-              <div class="card-header">
-                <h3 class="card-title">Form Tambah Obat</h3>
-              </div>
-              <!-- /.card-header -->
-              <!-- form start -->
-              <form>
-                <div class="card-body">
-                  <div class="form-group">
-                    <label for="nama_obat">Nama Obat</label>
-                    <input type="text" class="form-control" id="nama_obat" placeholder="Masukkan Nama Obat">
-                  </div>
-                  <div class="form-group">
-                    <label for="kemasan">Kemasan</label>
-                    <input type="text" class="form-control" id="kemasan" placeholder="Masukkan Kemasan Obat">
-                  </div>
-                  <div class="form-group">
-                    <label for="harga_obat">Obat</label>
-                    <input type="number" class="form-control" id="harga_obat" placeholder="Masukkan Harga Obat">
-                  </div>
+            <div class="col-md-12">
+                <!-- general form elements -->
+                <div class="card card-primary">
+                <div class="card-header">
+                    <h3 class="card-title">Form tambah obat</h3>
                 </div>
-                <!-- /.card-body -->
+                <!-- /.card-header -->
+                <!-- form start -->
+                <form>
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label for="nama_obat">Nama Obat</label>
+                            <input type="text" class="form-control" id="nama_obat" placeholder="Masukkan nama obat">
+                        </div>
+                        <div class="form-group">
+                            <label for="kemasan">Kemasan</label>
+                            <input type="text" class="form-control" id="kemasan" placeholder="Masukkan kemasan obat">
+                        </div>
+                        <div class="form-group">
+                            <label for="harga_obat">Harga</label>
+                            <input type="number" class="form-control" id="harga_obat" placeholder="Masukkan harga obat">
+                        </div>
+                    </div>
+                    <!-- /.card-body -->
 
-                <div class="card-footer text-right">
-                  <button type="submit" class="btn btn-primary">Submit</button>
+                    <div class="card-footer text-right">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </form>
                 </div>
-              </form>
+                <!-- /.card -->
             </div>
-            <!-- /.card -->
-        </div>
         </div>
         <div class="row">
-        <div class="col-12">
+            <div class="col-12">
             <div class="card">
               <div class="card-header">
                 <h3 class="card-title">Daftar Obat</h3>
@@ -106,11 +109,10 @@
                   <tbody>
                     @foreach ($obats as $obat)
                     <tr>
-                      <td>{{$loop->iteration}}</td>
-                      <td>{{$obat->nama_obat}}</td>
-                      <td>{{$obat->kemasan}}</td>
-                      <td>{{$obat->harga}}</td>
-                      <td><span>Edit</span><span>Delete</span></td>
+                        <td>{{ $loop->iteration }}</td>
+                        <td>{{ $obat->nama_obat }}</td>
+                        <td>{{ $obat->kemasan }}</td>
+                        <td><span>Edit </span><span>Delete </span></td>
                     </tr>
                     @endforeach
                   </tbody>

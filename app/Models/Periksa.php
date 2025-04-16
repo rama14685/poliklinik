@@ -19,11 +19,8 @@ class Periksa extends Model
     }
     public function dokter(){
         return $this->belongsTo(User::class, 'id_dokter');
-
-
     }
     public function detail_periksa(){
-        return $this->hasMany(DetailPeriksa::class, 'id_periksa', 'id');
+        return $this->hasMany(DetailPeriksa::class, 'id_periksa');
     }
 }
-

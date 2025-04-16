@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('nama_obat');
             $table->string('kemasan');
-            $table->bigInteger('harga');
+            $table->integer('harga');
             $table->timestamps();
         });
     }
