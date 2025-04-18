@@ -4,17 +4,23 @@
 
 @section('nav-item')
 <li class="nav-item">
-                <a href="/dokter/memeriksa" class="nav-link">
-                  <i class="nav-icon fas fa-solid fa-stethoscope"></i>
-                  <p>Memeriksa</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="/dokter/obat" class="nav-link">
-                  <i class="nav-icon fas fa-solid fa-capsules"></i>
-                  <p>Obat</p>
-                </a>
-              </li>
+  <a href="/dokter/dashboard" class="nav-link">
+      <i class="nav-icon fas fa-tachometer-alt"></i>
+      <p>Dashboard</p>
+  </a>
+</li>
+<li class="nav-item">
+  <a href="/dokter/memeriksa" class="nav-link">
+    <i class="nav-icon fas fa-solid fa-stethoscope"></i>
+    <p>Memeriksa</p>
+  </a>
+</li>
+<li class="nav-item">
+  <a href="/dokter/obat" class="nav-link">
+    <i class="nav-icon fas fa-solid fa-capsules"></i>
+    <p>Obat</p>
+  </a>
+</li>
 @endsection
 
 @section('content')
@@ -45,7 +51,7 @@
             <!-- general form elements -->
             <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">Form Tambah Obat</h3>
+                <h3 class="card-title">Form Edit Obat</h3>
               </div>
               <!-- /.card-header -->
               <!-- form start -->

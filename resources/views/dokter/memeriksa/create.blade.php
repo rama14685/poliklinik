@@ -3,18 +3,24 @@
 @section('title', 'Memeriksa')
 
 @section('nav-item')
-    <li class="nav-item">
-        <a href="/dokter/memeriksa" class="nav-link active">
-            <i class="nav-icon fas fa-stethoscope"></i>
-            <p>Memeriksa</p>
-        </a>
-    </li>
-    <li class="nav-item">
-        <a href="/dokter/obat" class="nav-link">
-            <i class="nav-icon fas fa-capsules"></i>
-            <p>Obat</p>
-        </a>
-    </li>
+<li class="nav-item">
+    <a href="/dokter/dashboard" class="nav-link">
+        <i class="nav-icon fas fa-tachometer-alt"></i>
+        <p>Dashboard</p>
+    </a>
+</li>
+<li class="nav-item">
+    <a href="/dokter/memeriksa" class="nav-link active">
+        <i class="nav-icon fas fa-stethoscope"></i>
+        <p>Memeriksa</p>
+    </a>
+</li>
+<li class="nav-item">
+    <a href="/dokter/obat" class="nav-link">
+        <i class="nav-icon fas fa-capsules"></i>
+        <p>Obat</p>
+    </a>
+</li>
 @endsection
 
 @section('content')

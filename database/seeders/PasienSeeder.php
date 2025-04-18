@@ -16,19 +16,19 @@ class PasienSeeder extends Seeder
     {
         $pasiens = [
             [
-                'nama' => 'Efi Siensi',
-                'alamat' => 'Jl. Manuk Kepodang No. 23',
+                'nama' => 'Aenur Hakim',
+                'alamat' => 'Perum Moga Permai Blok D24',
                 'no_hp' => '081234567890',
-                'email' => 'efisiensi23@gmail.com',
-                'password' => Hash::make('efisiensi23@gmail.com'),
+                'email' => 'aenurhakim729@gmail.com',
+                'password' => Hash::make('aenurhakim729@gmail.com'),
                 'role' => 'pasien',
             ],
             [
-                'nama' => 'Fuad Dauf',
+                'nama' => 'Mamat Alkatiri',
                 'alamat' => 'Jl. Lancar Jaya No. 45',
                 'no_hp' => '081234567891',
-                'email' => 'fuaddauf45@gmail.com',
-                'password' => Hash::make('fuaddauf45@gmail.com'),
+                'email' => 'mamat45@gmail.com',
+                'password' => Hash::make('mamat45@gmail.com'),
                 'role' => 'pasien',
             ],
         ];
