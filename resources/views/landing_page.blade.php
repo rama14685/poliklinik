@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Selamat Datang di Klinik Sehat</title>
+    <title>Selamat Datang di Klinik Antena</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -41,16 +41,19 @@
             /* Mengambil sebagian besar ruang */
             padding: 40px;
             text-align: left;
+            background-color: #ffffff;
+
         }
 
         .right-section {
             flex: 0.8;
             /* Mengambil sebagian kecil ruang */
-            background-color: #e0f7fa;
+            background-color: #ffffff;
             /* Latar belakang berbeda untuk visual */
             display: flex;
             align-items: center;
             justify-content: center;
+            margin-right: 15px;
         }
 
         header {
@@ -165,7 +168,7 @@
         <div class="left-section">
             <header>
                 <h1>
-                    <i class="fas fa-hospital"></i> Selamat Datang di Klinik Sehat
+                    <i class="fas fa-hospital"></i> Selamat Datang di Klinik Antena
                 </h1>
             </header>
             <main>
@@ -189,7 +192,8 @@
             </main>
         </div>
         <div class="right-section">
-            <img src="{{ asset('klinik.jpg') }}" class="clinic-image">
+            <img src="{{ asset('assets/klinik.jpg') }}" class="clinic-image">
+
         </div>
     </div>
 </body>

@@ -31,6 +31,15 @@ class DokterSeeder extends Seeder
                 'password' => Hash::make('asep33@gmail.com'),
                 'role' => 'dokter',
             ],
+            [
+                'nama' => 'Dr. Tirta',
+                'alamat' => 'Jl. jalan ke kota naik delman istimewa',
+                'no_hp' => '089637392112',
+                'email' => 'tirta33@gmail.com',
+                'password' => Hash::make('tirta33@gmail.com'),
+                'role' => 'dokter',
+            ],
+
         ];
 
         foreach ($dokters as $dokter) {
