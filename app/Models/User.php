@@ -21,9 +21,12 @@ class User extends Authenticatable
         'nama',
         'alamat',
         'no_hp',
+        'no_ktp',
+        'no_rm',
+        'id_poli',
+        'role',
         'email',
         'password',
-        'role',
     ];
 
     /**
@@ -49,10 +52,18 @@ class User extends Authenticatable
         ];
     }
 
-    public function periksa_pasien(){
-        return $this->hasMany(Periksa::class, 'id_pasien');
+    public function daftar_poli_pasien()
+    {
+        return $this->hasMany(DaftarPoli::class, 'id_pasien');
     }
-    public function periksa_dokter(){
-        return $this->hasMany(Periksa::class, 'id_dokter');
+
+    public function jadwal_periksa_dokter()
+    {
+        return $this->hasMany(JadwalPeriksa::class, 'id_dokter');
+    }
+
+    public function poli()
+    {
+        return $this->belongsTo(Poli::class, 'id_poli');
     }
 }

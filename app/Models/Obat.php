@@ -11,7 +11,9 @@ class Obat extends Model
         'kemasan',
         'harga',
     ];
-    public function detail_obat(){
+
+    public function detail_periksa_obat()
+    {
         return $this->hasMany(DetailPeriksa::class, 'id_obat');
     }
 }

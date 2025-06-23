@@ -1,6 +1,6 @@
 @extends('layout.app')
 
-@section('title','Memeriksa Pasien')
+@section('title','Jadwal Periksa')
 
 @section('nav-item')
 <li class="nav-item">
@@ -41,12 +41,12 @@
   <div class="container-fluid">
     <div class="row mb-2">
       <div class="col-sm-6">
-        <h1 class="m-0">Memeriksa Pasien</h1>
+        <h1 class="m-0">Jadwal Periksa</h1>
       </div><!-- /.col -->
       <div class="col-sm-6">
         <ol class="breadcrumb float-sm-right">
           <li class="breadcrumb-item"><a href="/dokter/dashboard">Home</a></li>
-          <li class="breadcrumb-item active">Memeriksa Pasien</li>
+          <li class="breadcrumb-item active">Jadwal Periksa</li>
         </ol>
       </div><!-- /.col -->
     </div><!-- /.row -->
@@ -61,12 +61,11 @@
       <div class="col-12">
         <div class="card">
           <div class="card-header">
-            <h3 class="card-title">Daftar Periksa Pasien</h3>
-
+            <h3 class="card-title">Daftar Jadwal Periksa</h3>
+            <a href="/dokter/jadwal_periksa/create" class="btn btn-sm btn-info ml-2">Tambah Jadwal Periksa</a>
             <div class="card-tools">
               <div class="input-group input-group-sm" style="width: 150px;">
                 <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
-
                 <div class="input-group-append">
                   <button type="submit" class="btn btn-default">
                     <i class="fas fa-search"></i>
@@ -81,31 +80,37 @@
               <thead>
                 <tr>
                   <th>No</th>
-                  <th>Nama Pasien</th>
-                  <th>Keluhan</th>
+                  <th>Nama Dokter</th>
+                  <th>Hari</th>
+                  <th>Jadwal Mulai</th>
+                  <th>Jadwal Selesai</th>
+                  <th>Status</th>
                   <th>Aksi</th>
                 </tr>
               </thead>
               <tbody>
-                @forelse ($daftarpolis as $daftarpoli)
+                @forelse ($jadwal_periksas as $jadwal_periksa)
                 <tr>
-                  <td>{{ $loop->iteration }}</td>
-                  <td>{{ $daftarpoli->pasien->nama }}</td>
-                  <td>{{ $daftarpoli->keluhan }}</td>
+                  <td>{{$loop->iteration}}</td>
+                  <td>{{$jadwal_periksa->dokter->nama}}</td>
+                  <td>{{$jadwal_periksa->hari}}</td>
+                  <td>{{$jadwal_periksa->jam_mulai}}</td>
+                  <td>{{$jadwal_periksa->jam_selesai}}</td>
                   <td>
-                    @php
-                    $periksa = $daftarpoli->periksa->first();
-                    @endphp
-                    @if (is_null($periksa))
-                    <a href="{{ url('/dokter/memeriksa/' . $daftarpoli->id . '/create') }}" class="btn btn-primary">Periksa</a>
+                    @if ($jadwal_periksa->status == 'aktif')
+                    <span class="badge badge-success">Aktif</span>
                     @else
-                    <a href="{{ url('/dokter/memeriksa/' . $periksa->id . '/edit') }}" class="btn btn-warning">Edit</a>
+                    <span class="badge badge-danger">Tidak Aktif</span>
                     @endif
+                  <td>
+                    <div class="row">
+                      <a href="/dokter/jadwal_periksa/{{ $jadwal_periksa->id }}/edit" class="btn btn-warning">Edit</a>
+                    </div>
                   </td>
                 </tr>
                 @empty
                 <tr>
-                  <td colspan="4" class="text-center">Tidak ada pasien yang diperiksa</td>
+                  <td colspan="7" class="text-center">Tidak ada jadwal periska</td>
                 </tr>
                 @endforelse
               </tbody>
