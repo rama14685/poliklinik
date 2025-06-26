@@ -11,6 +11,7 @@ use App\Http\Controllers\ObatController;
 use App\Http\Controllers\ProfilDokterController;
 use App\Http\Controllers\RiwayatPasienController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AdminDashboardController; // <-- DITAMBAHKAN
 
 // Route Menu Utama
 Route::get('/', function () {
@@ -24,11 +25,15 @@ Route::post('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/logout', [AuthController::class, 'logout'])->middleware('auth');
 
-// Route Admin
-Route::get('/admin/dashboard', function () {
-    return view('admin.index');
-})->name('admin.dashboard')->middleware('role:admin', 'auth');
 
+// ==================
+// ROUTE ADMIN
+// ==================
+// Route Dashboard Admin (DIUBAH)
+Route::get('/admin/dashboard', [AdminDashboardController::class, 'index'])
+    ->name('admin.dashboard')->middleware('role:admin', 'auth');
+
+// Route Kelola Dokter
 Route::get('/admin/mengelola_dokter', [KelolaDokterController::class, 'index'])->middleware('role:admin', 'auth');
 Route::get('/admin/mengelola_dokter/create', [KelolaDokterController::class, 'create'])->middleware('role:admin', 'auth');
 Route::post('/admin/mengelola_dokter', [KelolaDokterController::class, 'store'])->middleware('role:admin', 'auth');
@@ -36,6 +41,7 @@ Route::get('/admin/mengelola_dokter/{id}/edit', [KelolaDokterController::class, 
 Route::put('/admin/mengelola_dokter/{id}', [KelolaDokterController::class, 'update'])->middleware('role:admin', 'auth');
 Route::delete('/admin/mengelola_dokter/{id}', [KelolaDokterController::class, 'destroy'])->middleware('role:admin', 'auth');
 
+// Route Kelola Pasien
 Route::get('/admin/mengelola_pasien', [KelolaPasienController::class, 'index'])->middleware('role:admin', 'auth');
 Route::get('/admin/mengelola_pasien/create', [KelolaPasienController::class, 'create'])->middleware('role:admin', 'auth');
 Route::post('/admin/mengelola_pasien', [KelolaPasienController::class, 'store'])->middleware('role:admin', 'auth');
@@ -43,6 +49,7 @@ Route::get('/admin/mengelola_pasien/{id}/edit', [KelolaPasienController::class, 
 Route::put('/admin/mengelola_pasien/{id}', [KelolaPasienController::class, 'update'])->middleware('role:admin', 'auth');
 Route::delete('/admin/mengelola_pasien/{id}', [KelolaPasienController::class, 'destroy'])->middleware('role:admin', 'auth');
 
+// Route Kelola Poli
 Route::get('/admin/mengelola_poli', [KelolaPoliController::class, 'index'])->middleware('role:admin', 'auth');
 Route::get('/admin/mengelola_poli/create', [KelolaPoliController::class, 'create'])->middleware('role:admin', 'auth');
 Route::post('/admin/mengelola_poli', [KelolaPoliController::class, 'store'])->middleware('role:admin', 'auth');
@@ -50,6 +57,7 @@ Route::get('/admin/mengelola_poli/{id}/edit', [KelolaPoliController::class, 'edi
 Route::put('/admin/mengelola_poli/{id}', [KelolaPoliController::class, 'update'])->middleware('role:admin', 'auth');
 Route::delete('/admin/mengelola_poli/{id}', [KelolaPoliController::class, 'destroy'])->middleware('role:admin', 'auth');
 
+// Route Kelola Obat
 Route::get('/admin/obat', [ObatController::class, 'index'])->middleware('role:admin', 'auth');
 Route::get('/admin/obat/create', [ObatController::class, 'create'])->middleware('role:admin', 'auth');
 Route::post('/admin/obat', [ObatController::class, 'store'])->middleware('role:admin', 'auth');
@@ -57,7 +65,10 @@ Route::get('/admin/obat/{id}/edit', [ObatController::class, 'edit'])->middleware
 Route::put('/admin/obat/{id}', [ObatController::class, 'update'])->middleware('role:admin', 'auth');
 Route::delete('/admin/obat/{id}', [ObatController::class, 'destroy'])->middleware('role:admin', 'auth');
 
-// Route Dokter
+
+// ==================
+// ROUTE DOKTER
+// ==================
 Route::get('/dokter/dashboard', function () {
     return view('dokter.index');
 })->name('dokter.dashboard')->middleware('role:dokter', 'auth');
@@ -79,7 +90,10 @@ Route::get('/dokter/riwayat_pasien', [RiwayatPasienController::class, 'index'])-
 Route::get('/dokter/profil', [ProfilDokterController::class, 'edit'])->middleware('role:dokter', 'auth');
 Route::put('/dokter/profil', [ProfilDokterController::class, 'update'])->middleware('role:dokter', 'auth');
 
-// Route Pasien
+
+// ==================
+// ROUTE PASIEN
+// ==================
 Route::get('/pasien/dashboard', function () {
     return view('pasien.index');
 })->name('pasien.dashboard')->middleware('role:pasien', 'auth');

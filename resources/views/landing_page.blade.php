@@ -409,13 +409,13 @@
             <div class="services-grid">
                 <div class="service-card">
                     <div class="icon"><i class="fas fa-calendar-check"></i></div>
-                    <h3>Booking Online</h3>
-                    <p>Pesan jadwal konsultasi dengan dokter pilihan Anda secara cepat dan efisien.</p>
+                    <h3>Poliklinik Yang Sesuai Dengan Kondisi Anda</h3>
+                    <p>tersedia 5 Poli Dengan Dokter Spesialis di Bidangnya</p>
                 </div>
                 <div class="service-card">
                     <div class="icon"><i class="fas fa-file-medical-alt"></i></div>
-                    <h3>Rekam Medis Digital</h3>
-                    <p>Akses riwayat kesehatan Anda dengan aman dan mudah di mana saja.</p>
+                    <h3>Janji Temu sesuai harimu</h3>
+                    <p>janjian dengan doktermu nyesuaiin harimu</p>
                 </div>
                 <div class="service-card">
                     <div class="icon"><i class="fas fa-pills"></i></div>
