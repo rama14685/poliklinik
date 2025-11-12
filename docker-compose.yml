@@ -1,0 +1,51 @@
+version: "3.8"
+
+services:
+    app:
+        build:
+            context: .
+            dockerfile: Dockerfile
+        image: laravel-app
+        container_name: poliklinik-app
+        restart: unless-stopped
+        working_dir: /var/www
+        volumes:
+            - .:/var/www
+        networks:
+            - poliklinik
+
+    webserver:
+        image: nginx:alpine
+        container_name: poliklinik-nginx
+        restart: unless-stopped
+        ports:
+            - "8000:80"
+        volumes:
+            - .:/var/www
+            - ./nginx/conf.d:/etc/nginx/conf.d
+        depends_on:
+            - app
+        networks:
+            - poliklinik
+
+    db:
+        image: mysql:8.0
+        container_name: poliklinik-db
+        restart: unless-stopped
+        environment:
+            MYSQL_DATABASE: poliklinik
+            MYSQL_ROOT_PASSWORD: root
+            MYSQL_USER: laravel
+            MYSQL_PASSWORD: laravel
+        volumes:
+            - dbdata:/var/lib/mysql
+        ports:
+            - "3307:3306"
+        networks:
+            - poliklinik
+
+networks:
+    poliklinik:
+
+volumes:
+    dbdata:
